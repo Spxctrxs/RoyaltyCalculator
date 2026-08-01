@@ -69,8 +69,4 @@ The calculator currently includes estimated rates for the following platforms:
 
 ## Future ideas
 Possible enhancements include:
-- Adding more platforms and payout models
-- Supporting custom user-defined rates
-- Saving calculations locally
-- Exporting reports as CSV or PDF
-- Adding a backend for persistent project history
+- Nothing for now cuz I'm tired
