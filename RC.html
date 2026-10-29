@@ -15,7 +15,7 @@
     body { background: #0d0f17; color: #f3f4f6; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
     .glass-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
 
-    /* Horizontal scrolling ticker */
+    /* Horizontal scrolling ticker bar */
     .ticker-wrapper {
       display: flex;
       width: max-content;
@@ -211,7 +211,7 @@
   </style>
 </head>
 <body>
-  <!-- New Uiverse Loading Screen -->
+  <!-- The Loading Screen -->
   <div id="loader-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-[#0d0f17]" style="transition: opacity 0.5s ease;">
     <div class="loader">
       <div class="text"><span>Loading</span></div>
@@ -268,7 +268,7 @@
           </span><span class="mx-6 flex items-center gap-2">
             <i class="fa-brands fa-tiktok text-base" style="color:#69C9D0"></i>
             <span class="font-bold text-white">TikTok:</span> 
-            <span class="text-emerald-400">$0.0005 / stream</span>
+            <span class="text-emerald-400">$0.0004 / stream</span>
           </span><span class="mx-6 flex items-center gap-2">
             <span style="color:#00FFFF"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 4.2L7.8 8.4 12 12.6l4.2-4.2L12 4.2zm-8.4 8.4L7.8 16.8l4.2-4.2-4.2-4.2-4.2 4.2zm16.8 0l-4.2 4.2 4.2 4.2 4.2-4.2-4.2-4.2zm-8.4 8.4l-4.2-4.2 4.2-4.2 4.2 4.2-4.2 4.2z"></path></svg></span>
             <span class="font-bold text-white">Tidal:</span> 
@@ -814,7 +814,7 @@
           });
         }
 
-        // Record label fee option (-25%)
+        // Record label fee selection option (-25%)
         const isLabelFeeDeducted = document.getElementById('input-label-fee').checked;
         const labelFeeAmount = isLabelFeeDeducted ? grossEarnings * 0.25 : 0;
         const netEarnings = grossEarnings - labelFeeAmount;
@@ -829,7 +829,7 @@
         document.getElementById('card-net-payout').textContent = formatCurrency(netEarnings);
         document.getElementById('card-region-label').textContent = `Region: ${REGION_MULTIPLIERS[selectedRegionKey].name}`;
 
-        // Diamond Award Ready Badge (> 1.1 Million Streams)
+        // Diamond Award Ready Badge (> 1.1 Million Streams). This is to make sure they are above the minimum threshold for the award badge to appear on the card which is 1 million streams. If they are below that, the badge will be hidden.
         const awardBadge = document.getElementById('card-award-badge');
         if (totalStreams >= 1100000) {
           awardBadge.classList.remove('hidden');
@@ -908,14 +908,14 @@
         document.getElementById('card-modal').classList.add('hidden');
       }
 
-      // Download Card as PNG Function
+      // Downloadable Card as PNG Function
       function downloadCardPNG() {
         const targetCard = document.getElementById('exportable-card');
         const trackName = document.getElementById('input-track-title').value || 'Royalty_Statement';
 
         html2canvas(targetCard, {
           backgroundColor: null,
-          scale: 4,
+          scale: 5,
           useCORS: true
         }).then(canvas => {
           const link = document.createElement('a');
